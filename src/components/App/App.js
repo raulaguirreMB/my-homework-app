@@ -1,4 +1,8 @@
 import React from "react";
+import MenuBar from "../MenuBar/MenuBar";
+import Header from "../Header/Header";
+import Body from "../Body/Body";
+import "./App.css";
 
 class App extends React.Component {
   constructor() {
@@ -7,10 +11,16 @@ class App extends React.Component {
     this.state = {};
   }
 
+  componentDidMount(){
+    
+  }
+
   render() {
     return (
       <div className="App">
-        <p>Hello world</p>
+        <Header />
+        <MenuBar />
+        <Body />
       </div>
     );
   }

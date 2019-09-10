@@ -1,0 +1,12 @@
+.MenuBar-Container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-left: 70px;
+}
+
+a {
+  margin: 10px;
+  text-decoration: none;
+  color: grey;
+  font-size: 18px;
+}

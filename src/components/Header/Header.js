@@ -9,7 +9,12 @@ class Header extends React.Component {
   }
 
   render() {
-    return <div className={"Header-Container"}></div>;
+    return (
+      <div className={"Header-Container"}>
+        <img src="./assets/logo.png" alt="Urban Yoga Company Icon"></img>
+        <div className={"Taps-Container"}></div>
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,16 @@
+.Body-Container {
+  background-color: #f2f2eb;
+  padding: 15px;
+}
+
+.newProgramBtn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px;
+  background-color: #accb91;
+}
+
+.newProgramBtnLabel {
+  font-size: 12px;
+}
