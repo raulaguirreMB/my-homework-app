@@ -2,30 +2,30 @@ import React from "react";
 import "./Program.css";
 
 const Program = props => {
-  const { data } = props;
-  let name = "";
-  if (data != null) {
-    name = data.Name;
-  }
+  const { Name, TotalMonthlySales } = props.dataForProgramHeader;
+
+  const { showMore, HandleUpdateState } = props;
+
+  const bodyData = props.dataForProgramBody;
 
   return (
     <div className="program-container">
       <div className="program-header">
         <div className="program-header-textAndBtn">
           <div>
-            <div className="title">{name}</div>
+            <div className="title">{Name}</div>
             <div className="imgLabel">Sales By Month</div>
           </div>
-          <button>
+          <button className="editBtn">
             <img
-              className="editBtn"
               alt="pencil"
               src="./assets/pencil_icons.png"
+              className="pencilIcon"
             />
           </button>
         </div>
 
-        <img alt="graph" src="./assets/graph.png"></img>
+        <img alt="bar statics graph" src="./assets/graph.png"></img>
       </div>
 
       <div className="program-body">
@@ -35,16 +35,41 @@ const Program = props => {
         <div className="current-text">
           Current
           <div>
-            <b>$23,458</b>
+            <b>{TotalMonthlySales}</b>
           </div>
         </div>
         <div>
           <div className="year-text">1- Year</div>
-          <img alt="spark line" src="./assets/spark_line.png"></img>
+          <img alt="spark line graph" src="./assets/spark_line.png"></img>
         </div>
       </div>
-      <div onClick={() => console.log("hello")} className="showMore">
-        <div className="program-expanded">more</div>
+      {showMore ? (
+        <div className="program-expanded">
+          <div className="bodyDataNames">
+            <div>Price Names</div>
+            {bodyData.map((data, index) => {
+              return <li key={index}>{data.Name}</li>;
+            })}
+          </div>
+          <div className="bodyDataSales">
+            Current
+            {bodyData.map((data, index) => {
+              return <li key={index}>{data.Sales}</li>;
+            })}
+          </div>
+          <div className="bodyDataGraph">
+            <img alt="sparks line graph" src={"./assets/spark_lines.png"}></img>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+
+      <div
+        onClick={() => HandleUpdateState({ showMore: !showMore })}
+        className="showMore"
+      >
+        more
       </div>
     </div>
   );

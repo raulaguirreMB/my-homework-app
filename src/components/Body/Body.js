@@ -10,6 +10,35 @@ class Body extends React.Component {
   }
 
   render() {
+    let programs = [];
+    let {
+      dataForProgramHeader,
+      dataForProgramBody,
+      showMore,
+      HandleUpdateState
+    } = this.props;
+
+    let bodydata = [];
+
+    if (dataForProgramHeader != null) {
+      programs = dataForProgramHeader
+        .filter((key, index) => index < 3)
+        .map((pro, index) => {
+          bodydata = dataForProgramBody.filter(
+            arr => pro.ProgramID === arr.ProgramID
+          );
+
+          return (
+            <Program
+              key={index}
+              dataForProgramHeader={pro}
+              dataForProgramBody={bodydata}
+              showMore={showMore}
+              HandleUpdateState={HandleUpdateState}
+            />
+          );
+        });
+    }
     return (
       <div className={"Body-Container"}>
         <div>
@@ -20,11 +49,7 @@ class Body extends React.Component {
             New Program
           </label>
         </div>
-        <div className="Programs">
-          <Program data={this.props.data[0]} />
-          <Program data={this.props.data[1]} />
-          <Program data={this.props.data[2]} />
-        </div>
+        <div className="Programs">{programs}</div>
       </div>
     );
   }

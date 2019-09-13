@@ -9,7 +9,9 @@ class App extends Component {
     super();
 
     this.state = {
-      data: {}
+      dataForProgramHeader: [],
+      dataForProgramBody: [],
+      showMore: false
     };
   }
 
@@ -17,24 +19,41 @@ class App extends Component {
     axios
       .get("https://api.myjson.com/bins/5bdb3")
       .then(res => {
-        this.setState({ data: res.data });
+        this.setState({ dataForProgramHeader: res.data });
       })
       .catch(error => {
-        console.log("Error fetching parsed data", error);
+        console.log("Error fetching parsed data for Header", error);
+      });
+    axios
+      .get("https://api.myjson.com/bins/47axv")
+      .then(res => {
+        this.setState({ dataForProgramBody: res.data });
+      })
+      .catch(error => {
+        console.log("Error fetching parsed data for Body", error);
       });
   }
+
+  HandleUpdateState = newState => {
+    this.setState({ ...this.state, ...newState });
+  };
 
   componentWillUnmount() {
     console.log("Component dismounted");
   }
 
   render() {
-    const data = this.state.data;
+    const { dataForProgramHeader, dataForProgramBody } = this.state;
     return (
       <div className="App">
         <Header />
         <MenuBar />
-        <Body data={data} />
+        <Body
+          dataForProgramHeader={dataForProgramHeader}
+          dataForProgramBody={dataForProgramBody}
+          showMore={this.state.showMore}
+          HandleUpdateState={this.HandleUpdateState}
+        />
       </div>
     );
   }
