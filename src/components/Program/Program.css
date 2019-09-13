@@ -1,0 +1,78 @@
+.program-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-end;
+  background-color: white;
+  box-shadow: 0 10px 10px -5px grey;
+  border-radius: 4px;
+  margin: 10px;
+}
+
+.program-header {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+.program-header-textAndBtn {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.imgLabel {
+  color: grey;
+  font-size: 12px;
+}
+
+.editBtn {
+  
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.program-body {
+  display: flex;
+  border-top: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  background-color: #fbfbf6;
+  padding: 15px;
+  color: grey;
+  font-size: 10px;
+}
+
+.program-expanded {
+  padding: 5px;
+}
+
+.showMore {
+  color: lightgray;
+  cursor: pointer;
+  margin: 0;
+}
+
+.Total-Monthly-text {
+  margin-right: 30px;
+  font-size: 10px;
+}
+
+.sales-text {
+  font-size: 15px;
+}
+
+.current-text {
+  font-size: 12px;
+  margin-right: 20px;
+  color: lightgrey;
+}
+
+.year-text {
+  color: lightgrey;
+  font-size: 12px;
+}
+
+b {
+  color: grey;
+}

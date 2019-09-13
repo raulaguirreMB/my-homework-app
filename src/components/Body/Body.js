@@ -12,16 +12,18 @@ class Body extends React.Component {
   render() {
     return (
       <div className={"Body-Container"}>
-        <button name="newProgramBtn" className="newProgramBtn">
-          <img src="./assets/plus_icon.png" alt="Plus Icon"></img>
-        </button>
-        <label className="newProgramBtnLabel" to="newProgramBtn">
-          New Program
-        </label>
+        <div>
+          <button name="newProgramBtn" className="newProgramBtn">
+            <img src="./assets/plus_icon.png" alt="Plus Icon"></img>
+          </button>
+          <label className="newProgramBtnLabel" to="newProgramBtn">
+            New Program
+          </label>
+        </div>
         <div className="Programs">
-          <Program />
-          <Program />
-          <Program />
+          <Program data={this.props.data[0]} />
+          <Program data={this.props.data[1]} />
+          <Program data={this.props.data[2]} />
         </div>
       </div>
     );
